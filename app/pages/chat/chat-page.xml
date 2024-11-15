@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="*, auto">
+        <ListView items="{{ messages }}" row="0" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="*" class="p-2">
+                    <StackLayout>
+                        <Label text="{{ username }}" class="font-bold" />
+                        <Label text="{{ text }}" textWrap="true" class="message-text" />
+                        <Label text="{{ timestamp | dateConverter }}" class="text-xs text-gray-500" />
+                    </StackLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+        
+        <GridLayout row="1" columns="*, auto" class="p-2 bg-gray-100">
+            <TextField col="0" hint="Type a message..." text="{{ newMessage }}" 
+                      returnPress="{{ sendMessage }}" class="input p-2" />
+            <Button col="1" text="Send" tap="{{ sendMessage }}" 
+                    class="btn p-2 bg-blue-500 text-white" />
+        </GridLayout>
+    </GridLayout>
+</Page>

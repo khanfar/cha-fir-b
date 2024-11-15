@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" actionBarHidden="true">
+    <GridLayout>
+        <StackLayout class="p-4 space-y-4">
+            <Label text="Chat App Login" class="text-2xl font-bold text-center p-4" />
+            <Label text="Loading..." class="text-center" visibility="{{ isLoading ? 'visible' : 'collapsed' }}" />
+            <StackLayout visibility="{{ !isLoading ? 'visible' : 'collapsed' }}">
+                <TextField hint="Email" text="{{ username }}" keyboardType="email" autocorrect="false" autocapitalizationType="none" class="input p-4 border rounded" />
+                <TextField hint="Password" text="{{ password }}" secure="true" class="input p-4 border rounded" />
+                <Button text="Login" tap="{{ onLogin }}" class="btn p-4 bg-blue-500 text-white rounded-lg" />
+                <Button text="Register" tap="{{ onRegister }}" class="btn p-4 bg-green-500 text-white rounded-lg" />
+                <Label text="{{ errorMessage }}" class="text-red-500 text-center" textWrap="true" visibility="{{ errorMessage ? 'visible' : 'collapsed' }}" />
+            </StackLayout>
+        </StackLayout>
+    </GridLayout>
+</Page>
